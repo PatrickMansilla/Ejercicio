@@ -1,0 +1,40 @@
+{% extends 'layout.html' %} {% load filters %} {% block title %} Crear Autor {% endblock %} {% block content %}
+<H1 class="title">
+    Crear Autor
+</H1>
+<form action="{% url 'save_autor' %}" method="POST">
+    {% csrf_token %}
+    <label for="nombre"> Nombre </label>
+    <input type="text" name="nombre" />
+
+    <label for="apellido"> Apellido </label>
+    <textarea name="apellido"></textarea>
+
+    <label for="fecha_nacimiento"> Fecha de Nacimiento </label>
+    <input type="date" name="fecha_nacimiento" />
+
+    <label for="sexo"> Sexo </label>
+    <select name="sexo">
+            <option value="1">Masculino</option>
+            <option value="0">Femenino</option>
+        </select>
+
+    <label for="pais"> País </label>
+    <select name="pais">
+            <option value="10">Venezuela</option>
+            <option value="9">Bolivia</option>
+            <option value="8">Estados Unidos</option>
+            <option value="7">Paraguay</option>
+            <option value="6">Uruguay</option>           
+            <option value="5">Argentina</option>
+            <option value="4">Colombia</option>
+            <option value="3">Brasil</option>
+            <option value="2">Ecuador</option>
+            <option value="1">Chile</option>
+            <option value="0">Perú</option>
+        </select>
+
+    <input type="submit" value="Agregar" />
+
+</form>
+{% endblock %}
